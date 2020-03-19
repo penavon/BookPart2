@@ -7,4 +7,18 @@ The book provides fully working open-source code (also deposited at Github) and 
 
 ## How to compile the source code:
 
+Get teh code eighter by downling the xip file or running the following from the command line
+
+```
+git clone https://github.com/penavon/BookPart2.git
+```
+
+Start Delphi and load the group file:
+
+```
+RhodusVersionOneGroup.groupproj
+```
+
+then build the RhodusVersionOneProject and run
+
 
