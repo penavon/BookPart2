@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8364CFFA-F138-480F-85C1-50819962825D}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="RhodusVersionOneProject.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RhodusVersionOneProject">
+        <MSBuild Projects="RhodusVersionOneProject.dproj"/>
+    </Target>
+    <Target Name="RhodusVersionOneProject:Clean">
+        <MSBuild Projects="RhodusVersionOneProject.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RhodusVersionOneProject:Make">
+        <MSBuild Projects="RhodusVersionOneProject.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RhodusVersionOneProject"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RhodusVersionOneProject:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RhodusVersionOneProject:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
