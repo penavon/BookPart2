@@ -62,7 +62,7 @@ uses
   uRunCode in 'uRunCode.pas';
 
 const
-   RHODUS_VERSION = '1.03';
+   RHODUS_VERSION = '1.04';
 
 
 var sourceCode : string;

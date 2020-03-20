@@ -439,6 +439,7 @@ initialization
    listOfCommands.Add (TCommand.Create ('list',       listCommand));
    listOfCommands.Add (TCommand.Create ('tests',      testsCommand));
    listOfCommands.Add (TCommand.Create ('run',        runCommand));
+   listOfCommands.Add (TCommand.Create ('symbols',    symbolsCommnd));
 
    winList := TStringList.Create;
 finalization
