@@ -167,30 +167,24 @@ end;
 // Such indexing could invovles lists or strings
 procedure TSyntaxAnalysis.parseIndexedVariable (aProgram: TProgram);
 begin
-  // Much check local scope first if we're in a user function because
+  // Must check local scope first if we're in a user function because
   // variables in a user function have higher priority
   if inUserFunctionScope then
      begin
-     //if currentUserFunction.symbolTable.find(identifier, index) then
-        begin
-        sc.nextToken;
-        expression(aProgram);
-        aProgram.addByteCode(oLocalLvecIdx);
-        while sc.token = tComma do
-             begin
-            sc.nextToken;
-            expression(aProgram);
-            aProgram.addByteCode(oLocalLvecIdx);
+     sc.nextToken;
+     expression(aProgram);
+     aProgram.addByteCode(oLocalLvecIdx);
+     while sc.token = tComma do
+           begin
+           sc.nextToken;
+           expression(aProgram);
+           aProgram.addByteCode(oLocalLvecIdx);
             end;
 
-        expect(tRightBracket);
-        exit;
-        end
-     //else
-     //  raise ESyntaxException.Create('Indexed variable is undefined [' + identifier + ']');
+     expect(tRightBracket);
+     exit;
      end
   else
-  //if module.symbolTable.find(identifier, index) then
      begin
      sc.nextToken;
      expression(aProgram);
@@ -204,8 +198,6 @@ begin
      expect(tRightBracket);
      exit;
      end
-  //else
-  //  raise ESyntaxException.Create('Indexed variable is undefined [' + identifier + ']');
 end;
 
 
@@ -931,7 +923,7 @@ begin
 end;
 
 
-// function = function identifier [ '(' argumentList ')' ]
+// function = function identifier '(' argumentList ')' statementList
 procedure TSyntaxAnalysis.functionDef(aProgram: TProgram);
 var
   functionName: string;
